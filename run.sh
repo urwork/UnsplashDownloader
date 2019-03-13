@@ -1,0 +1,3 @@
+scrapy runspider FullSite.py
+
+
