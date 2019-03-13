@@ -1,6 +1,6 @@
 # -*- encoding:utf-8 -*-
 import sqlite3, urllib, threadpool  # sqlite3：管理数据库；urllib：下载文件；threadpool：线程池
-
+from os.path import join
 
 class PengDownloader:
     def __init__(self, urls, folder, threads=10):  # 初始化函数
@@ -18,7 +18,7 @@ class PengDownloader:
         pre = url.split('/')[-1]
         name = pre if pre.split(".")[-1] in ["jpg", "png", "bmp"]else pre + ".jpg"  # 文件名
         print self.folder + "\\" + name
-        self.auto_down(url, self.folder + "\\" + name)  # 下载
+        self.auto_down(url, join(self.folder , name))  # 下载
 
     def auto_down(self, url, filename):  # 处理出现网络不好的问题，重新下载
         try:
