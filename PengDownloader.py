@@ -17,7 +17,7 @@ class PengDownloader:
     def downloader(self, url):
         pre = url.split('/')[-1]
         name = pre if pre.split(".")[-1] in ["jpg", "png", "bmp"]else pre + ".jpg"  # 文件名
-        print self.folder + "\\" + name
+        print name
         self.auto_down(url, join(self.folder , name))  # 下载
 
     def auto_down(self, url, filename):  # 处理出现网络不好的问题，重新下载
