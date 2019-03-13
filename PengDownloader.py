@@ -30,9 +30,9 @@ class PengDownloader:
 
 if __name__ == "__main__":
     urls = []
-    conn = sqlite3.connect("D:\\PythonLab\\Unsplash Downloader\\database\\link.db")  # 连接数据库
+    conn = sqlite3.connect("link.db")  # 连接数据库
     cursor = conn.execute("SELECT LINK FROM LINK WHERE ID < 10")  # 一次性选择全部链接
     for row in cursor:
         urls.append(row[0])
-    pd = PengDownloader(urls, "D:\\PythonLab\\Unsplash Downloader\\Files", threads=400)  # 新建下载器
+    pd = PengDownloader(urls, "Files", threads=400)  # 新建下载器
     pd.run()
